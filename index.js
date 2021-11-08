@@ -70,7 +70,7 @@ const starts = async (kurr = new WAConnection()) => {
 			} catch {                
             	memeg = mdata.participants.length
             	num = anu.participants[0]
-                anu_user = kurr.kurrname || kurr.notify || num.split('@')[0]
+                anu_user = kurr.vname || kurr.notify || num.split('@')[0]
                 time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
 			    ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
@@ -94,7 +94,7 @@ headerType: 4 }
 			} catch {			
                 memeg = mdata.participants.length
             	num = anu.participants[0]
-                anu_user = kurr.kurrname || kurr.notify || num.split('@')[0]
+                anu_user = kurr.vname || kurr.notify || num.split('@')[0]
                 time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}

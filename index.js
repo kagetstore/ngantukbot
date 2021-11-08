@@ -67,14 +67,10 @@ const starts = async (kurr = new WAConnection()) => {
 		    num = anu.participants[0]
 			try {
 			ppimg = await kurr.getProfilePicture(`${num.split('@')[0]}@c.us`)
-			} catch {                
-            	memeg = mdata.participants.length
-            	num = anu.participants[0]
-                anu_user = kurr.vname || kurr.notify || num.split('@')[0]
-                time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
-			    ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			} catch {
+			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
-			let buff = await getBuffer(`https://kuontol-api.herokuapp.com/api/welcome?nama=${anu_user}&member=${memeg}&gc=${encodeURI(mdata.subject)}&pp=${ppimg}&bg=https://cdn.wallpapersafari.com/38/89/pZxtn4.jpg`)
+			let buff = await getBuffer(ppimg)
 			masuk =`Halo @${num.split('@')[0]}\nSelamat Datang Di ${mdata.subject}\n\n*Jangan Lupa Isi*\n*Nama* :\n*Umur* :\n*Gender* :\n*Askot* :\n\nEnjoy Jangan Lupa Kenalan\nKlik Button Di Bawah Untuk Memulai Bot\nNote Jika Tidak Ada Ketik .allmenu`
 			gbutsan = [{buttonId:'SERAH',buttonText:{displayText:'👋Welcome'},type:1}]
 			mhan = await kurr.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: buff})
@@ -87,18 +83,14 @@ headerType: 4 }
 			} else if (anu.action == 'remove') {
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
         	if(!welkom.includes(mdata.id)) return
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;KurrXd;;;\nFN:W A I F U GAHN\nitem1.TEL;waid=6283162388082:6283162388082\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;KurrXd;;;\nFN:S H E R L Y N N GAHN\nitem1.TEL;waid=6283162388082:6283162388082\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
 			try {
 			ppimg = await kurr.getProfilePicture(`${num.split('@')[0]}@c.us`)
-			} catch {			
-                memeg = mdata.participants.length
-            	num = anu.participants[0]
-                anu_user = kurr.vname || kurr.notify || num.split('@')[0]
-                time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
+			} catch {
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
-			let buff = await getBuffer(`https://kuontol-api.herokuapp.com/api/goodbye?nama=${anu_user}&member=${memeg}&gc=${encodeURI(mdata.subject)}&pp=${ppimg}&bg=https://cdn.wallpapersafari.com/38/89/pZxtn4.jpg`)
+			let buff = await getBuffer(ppimg)
 			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga tenang disana`
 			gbutsan = [{buttonId:'SERAH',buttonText:{displayText:'👋Byee'},type:1}]
 			mhan = await kurr.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: buff})
